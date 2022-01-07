@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/Not_found.js": "/js/Not_found.js",
+    "/js/DashboardPage.js": "/js/DashboardPage.js",
+    "/js/RolePage.js": "/js/RolePage.js",
+    "/js/UserPage.js": "/js/UserPage.js",
+    "/js/ExpensePage.js": "/js/ExpensePage.js",
+    "/js/ExpensesPage.js": "/js/ExpensesPage.js",
+    "/css/app.css": "/css/app.css"
+}
