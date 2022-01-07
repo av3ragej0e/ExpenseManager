@@ -239,7 +239,6 @@ export default {
 
       select: [],
 
-
     }),
 
     computed: {
@@ -273,9 +272,6 @@ export default {
       },
       resetValidation () {
         this.$refs.form.resetValidation()
-
-        
-
 
       },
       
