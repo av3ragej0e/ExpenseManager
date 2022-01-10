@@ -156,16 +156,10 @@
   </v-card-text>
 
 
-  <BreadComponent :page="page"></BreadComponent> 
+    <BreadComponent :page="page"></BreadComponent> 
 
 
-
-              
-
-
-</v-card>
-
-  
+  </v-card>
 </template>
 
 <script>
@@ -178,21 +172,21 @@ export default {
 
     data: () => ({
 
-
        valid: false,
-      
-      
-      nameRules: [
+       
+       nameRules: [
         v => !!v || 'Name is required',
         
-      ],
+       ],
      
-      emailRules: [
+       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
+
+       ],
      
-           page:[
+       page:[
+
         {
           text: 'User Management',
           disabled: true,
@@ -202,8 +196,8 @@ export default {
           disabled: false,
           href: '',
         },
-           ],
 
+       ],
 
       dialog: false,
       dialogDelete: false,
@@ -231,7 +225,7 @@ export default {
         
       },
       defaultItem: {
-       name: null,
+        name: null,
         email: null,
         created_at: null,
         role_id: null,
@@ -256,16 +250,12 @@ export default {
       },
     },
 
-    // created () {
-    //   this.initialize()
-    // },
-
+    
     methods: {
 
-       validate () {  
+      validate () {  
         this.$refs.form.validate()
         this.save()
-        
       },
       reset () {
         this.$refs.form.reset()
@@ -275,8 +265,6 @@ export default {
 
       },
       
-      
-
       editItem (item) {
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
@@ -290,18 +278,10 @@ export default {
       },
 
       deleteItemConfirm () {
-      //  console.log(this.editedItem)
+      
         axios.post('/delete_user', this.editedItem).then((response)=>{
-
-
-            this.getUser()
-
-            
-                    
-             
-                      
-
-          })
+        this.getUser()
+        })
         this.closeDelete()
       },
 
@@ -326,79 +306,42 @@ export default {
         if ("id" in this.editedItem){
 
           axios.put('/update_user', this.editedItem).then((response)=>{
-
-
-            this.getUser()
-
-            this.close()
-                    
-             
-                      
-
+          this.getUser()
+          this.close()
           })
           
-
         } else{
 
           axios.post('/add_user', this.editedItem).then((response)=>{
-
-
-            this.getUser()
-
-            this.close()
-                    
-             
-                    })
+          this.getUser()
+          this.close()
+          })
         }
-                this.resetValidation()
-                this.reset()
-        
-
+          this.resetValidation()
+          this.reset()
 
       },
 
-        getUser()
-        
-        {
-            axios.get('/user').then((response)=>{
-                      this.desserts=response.data
+      getUser() {
+          axios.get('/user').then((response)=>{
+          this.desserts=response.data
             })
-
-
-
-        }
-
-
-
-
-
+      }
     },
 
-
-          mounted () {
-                // console.log("Mounted!", location.href)
-
-             this.getUser()
-
-
-                 axios.get('/roles').then((response)=>{
-                      this.select=response.data
-                  // console.log(response.data)
-                })
-
-             
-
-            },
+      mounted () {
+          this.getUser()
+          axios.get('/roles').then((response)=>{
+          this.select=response.data
+          })
+      },
             
+      components: {
+         BreadComponent,
+                  }
 
+}
 
-
-          components: {
-     BreadComponent,
-           }
-
-
-  }
 </script>
 
 <style>
