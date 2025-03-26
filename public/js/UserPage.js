@@ -216,18 +216,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -303,9 +291,6 @@ __webpack_require__.r(__webpack_exports__);
       val || this.closeDelete();
     }
   },
-  // created () {
-  //   this.initialize()
-  // },
   methods: {
     validate: function validate() {
       this.$refs.form.validate();
@@ -330,7 +315,6 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       var _this = this;
 
-      //  console.log(this.editedItem)
       axios.post('/delete_user', this.editedItem).then(function (response) {
         _this.getUser();
       });
@@ -385,10 +369,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this6 = this;
 
-    // console.log("Mounted!", location.href)
     this.getUser();
     axios.get('/roles').then(function (response) {
-      _this6.select = response.data; // console.log(response.data)
+      _this6.select = response.data;
     });
   },
   components: {
@@ -664,7 +647,7 @@ var render = function () {
                                             ),
                                             [
                                               _vm._v(
-                                                "\r\n              Add User\r\n            "
+                                                "\n            Add User\n          "
                                               ),
                                             ]
                                           ),
@@ -846,7 +829,7 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                "\r\n                Cancel\r\n              "
+                                                "\n              Cancel\n            "
                                               ),
                                             ]
                                           ),
@@ -863,7 +846,7 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                "\r\n                Save\r\n              "
+                                                "\n              Save\n            "
                                               ),
                                             ]
                                           ),
@@ -970,7 +953,7 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\r\n        mdi-pencil\r\n      ")]
+                        [_vm._v("\n      mdi-pencil\n    ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -983,7 +966,7 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\r\n        mdi-delete\r\n      ")]
+                        [_vm._v("\n      mdi-delete\n    ")]
                       ),
                     ]
                   },
@@ -994,9 +977,9 @@ var render = function () {
                     var item = ref.item
                     return [
                       _vm._v(
-                        "\r\n\r\n        " +
+                        "\n\n      " +
                           _vm._s(item.created_at.substr(item.created_at, 10)) +
-                          "\r\n    \r\n    "
+                          "\n  \n  "
                       ),
                     ]
                   },

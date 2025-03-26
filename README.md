@@ -6,3 +6,5 @@
 ### Database name practice_laravel
 
 #### Database seeder php artisan migrate:fresh --seed
+
+## How to run / Serve: php artisan serve --host=localhost --port=3306
